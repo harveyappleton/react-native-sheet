@@ -1,0 +1,17 @@
+{
+  "name": "react-native-sheet-example",
+  "displayName": "Sheet Example",
+  "expo": {
+    "name": "react-native-sheet-example",
+    "slug": "react-native-sheet-example",
+    "description": "Example app for react-native-sheet",
+    "userInterfaceStyle": "automatic",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": ["**/*"]
+  }
+}
