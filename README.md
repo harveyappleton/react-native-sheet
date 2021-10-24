@@ -4,22 +4,21 @@
 
 A cross platform, lightweight, pure JS implementation (no dependencies) of bottom sheets in React Native, written in TypeScript.
 
-![React Native Bottom Sheet](./previews/ios.gif)
-![React Native Bottom Sheet](./previews/android.gif)
-![React Native Bottom Sheet](./previews/web.gif)
+![React Native Sheet](./previews/ios.gif)
+![React Native Sheet](./previews/android.gif)
+![React Native Sheet](./previews/web.gif)
 
 ## Features
 
-- :white_check_mark: **Cross platform**: iOS, Android and Web!
-- :white_check_mark: **No dependencies**: Just requires React Native and React peer dependencies.
-- :white_check_mark: **Light and Dark mode** supported by default, and responds to changes automatically.
-- :white_check_mark: **Draggable**: You can drag to close once you cross the close threshold, and a drag marker will show to indicate this.
-- :white_check_mark: **Closeable using background**: By tapping on the background behind the sheet, the sheet will be closed.
-- :white_check_mark: **Closeable using Android back button**: will automatically close the modal.
-- :white_check_mark: **Customisable** with lots of prop options.
-- :white_check_mark: **Callbacks galore**: Lots of easy to use callbacks, such as `onOpenStart` and `onOpenFinish`.
-- :white_check_mark: **TypeScript** support - fully written in TypeScript.
-- :white_check_mark: **Easy to style** using lots of props.
+- :computer: :iphone: **Cross platform**: iOS, Android and Web!
+- :no_entry_sign: **No dependencies**: Just requires React Native and React peer dependencies.
+- :last_quarter_moon: **Light and Dark mode** supported by default, and responds to changes automatically.
+- :arrow_up_down: **Draggable**: You can drag to close once you cross the close threshold, and a drag marker will show to indicate this.
+- :round_pushpin: **Closeable using background**: By tapping on the background behind the sheet, the sheet will be closed.
+- :arrow_backward: **Closeable using Android back button**: will automatically close the modal.
+- :art: **Customisable and easy to style** with lots of prop options.
+- :speech_balloon: **Callbacks galore**: Lots of easy to use callbacks, such as `onOpenStart` and `onOpenFinish`.
+- :blue_book: **TypeScript** support - fully written in TypeScript.
 - :white_check_mark: **Tested** using Jest.
 
 ## Like the library?
