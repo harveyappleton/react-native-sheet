@@ -40,7 +40,7 @@ export const BottomSheet = memo(
       showDragIcon = true,
       dragIconColor,
       dragIconStyle,
-      borderRadius,
+      borderRadius = 10,
       contentContainerStyle,
       onOpenStart,
       onOpenFinish,
@@ -150,8 +150,8 @@ export const BottomSheet = memo(
               styles.container,
               {
                 height: animatedHeight,
-                borderTopRightRadius: borderRadius ?? 10,
-                borderTopLeftRadius: borderRadius ?? 10,
+                borderTopRightRadius: borderRadius,
+                borderTopLeftRadius: borderRadius,
                 backgroundColor: sheetBackgroundColor || isDarkMode ? '#222222' : '#F3F3F3'
               }
             ]}

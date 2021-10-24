@@ -41,6 +41,8 @@ yarn add react-native-sheet
 
 **TypeScript example**
 
+Add your ref using a hook and the BottomSheet component with its content. The props reference table is below, and the API of the ref is also below.
+
 ```tsx
 import { BottomSheet } from 'react-native-sheet';
 
@@ -84,6 +86,38 @@ export default function App() {
   );
 }
 ```
+
+### Props
+
+| Prop                      | Required | Description                                                                                                                                                           | Possible Values         | Default                           |
+| ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------------- |
+| `children`                | Yes      | The content to show inside the Bottom Sheet.                                                                                                                          | React Node              | -                                 |
+| `height`                  | Yes      | The height of the bottom sheet once opened.                                                                                                                           | number                  | -                                 |
+| `colorScheme`             | No       | Force the bottom sheet to be a specific colour scheme. 'auto' will use host OS colour scheme (eg light or dark) and automatically change when host OS scheme changes. | 'auto', 'light', 'dark' | 'auto'                            |
+| `backdropClosesSheet`     | No       | Whether tapping/clicking on the backdrop behind the bottom sheet will close it.                                                                                       | true/false              | true                              |
+| `backdropBackgroundColor` | No       | RGBA or Hex string value for the backdrop color.                                                                                                                      | RGBA/Hex string         | '#25252599'                       |
+| `sheetBackgroundColor`    | No       | RGBA or Hex string value for the background color of the bottom sheet.                                                                                                | RGBA/Hex string         | Dark: '#222222', Light: '#F3F3F3' |
+| `draggable`               | No       | Whether the bottom sheet is draggable.                                                                                                                                | true/false              | true                              |
+| `showDragIcon`            | No       | Whether to show the drag icon handle. Only displayed if `draggable` is set to true as well.                                                                           | true/false              | true                              |
+| `dragIconColor`           | No       | RGBA or Hex string value for the color of the drag icon handle.                                                                                                       | RGBA/Hex string         | Dark: '#444444', Light: '#A3A3A3' |
+| `dragIconStyle`           | No       | Inline JS style override for drag icon handle.                                                                                                                        | Style object            | undefined                         |
+| `contentContainerStyle`   | No       | Inline JS style override for content container style.                                                                                                                 | Style object            | undefined                         |
+| `borderRadius`            | No       | How rounded the corners of the sheet should be.                                                                                                                       | number                  | 10                                |
+| `openTime`                | No       | How long the opening animation should take.                                                                                                                           | number                  | 300                               |
+| `closeTime`               | No       | How long the closing animation should take.                                                                                                                           | number                  | 300                               |
+| `onOpenStart`             | No       | Called when the bottom sheet _begins_ to open.                                                                                                                        | Void function           | undefined                         |
+| `onOpenFinish`            | No       | Called when the bottom sheet _finishes_ opening.                                                                                                                      | Void function           | undefined                         |
+| `onCloseStart`            | No       | Called when the bottom sheet _begins_ to close.                                                                                                                       | Void function           | undefined                         |
+| `onCloseFinish`           | No       | Called when the bottom sheet _finishes_ closing.                                                                                                                      | Void function           | undefined                         |
+
+### Ref functions
+
+Used by calling the functions on the ref, eg `bottomSheet.current?.show()`.
+
+| Function  | Description              |
+| --------- | ------------------------ |
+| `.show()` | Opens the bottom sheet.  |
+| `.hide()` | Closes the bottom sheet. |
 
 ## Example app
 
