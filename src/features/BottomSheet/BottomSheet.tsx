@@ -14,6 +14,7 @@ export interface BottomSheetProps {
   backdropClosesSheet?: boolean | undefined;
   backdropBackgroundColor?: string | undefined;
   sheetBackgroundColor?: string | undefined;
+  sheetStyle?: ViewStyle | undefined;
   draggable?: boolean | undefined;
   showDragIcon?: boolean | undefined;
   dragIconColor?: string | undefined;
@@ -36,6 +37,7 @@ export const BottomSheet = memo(
       backdropClosesSheet = true,
       backdropBackgroundColor,
       sheetBackgroundColor,
+      sheetStyle,
       draggable = true,
       showDragIcon = true,
       dragIconColor,
@@ -153,7 +155,8 @@ export const BottomSheet = memo(
                 borderTopRightRadius: borderRadius,
                 borderTopLeftRadius: borderRadius,
                 backgroundColor: sheetBackgroundColor || isDarkMode ? '#222222' : '#F3F3F3'
-              }
+              },
+              sheetStyle
             ]}
           >
             {isDraggable && showDragIcon && (
