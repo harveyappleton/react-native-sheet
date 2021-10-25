@@ -1,6 +1,6 @@
 {
   "name": "react-native-sheet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A cross platform, pure JS implementation of bottom sheets in React Native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
