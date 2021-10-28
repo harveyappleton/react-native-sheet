@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState, useRef, useImperativeHandle, useCallback, forwardRef, ReactNode } from 'react';
+import React, { memo, useMemo, useState, useRef, useImperativeHandle, useCallback, forwardRef, ReactNode, useEffect } from 'react';
 import { Platform, View, Modal, TouchableOpacity, Animated, PanResponder, ViewStyle, useColorScheme } from 'react-native';
 import { styles } from './styles';
 
@@ -99,6 +99,7 @@ export const BottomSheet = memo(
       [animatedHeight, closeTime, height, onCloseFinish, onCloseStart, onOpenFinish, onOpenStart, openTime, pan]
     );
 
+    // Respond to pan changes
     const panResponder = useRef(
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -124,11 +125,22 @@ export const BottomSheet = memo(
       })
     ).current;
 
+    // If `height` prop changes, respond and change to new height immediately
+    useEffect(() => {
+      Animated.timing(animatedHeight, {
+        toValue: height,
+        duration: 0,
+        useNativeDriver: false
+      }).start();
+    }, [height]);
+
+    // Expose specific methods on hook
     useImperativeHandle(ref, () => ({
       show: () => setModalVisibility(true),
       hide: () => setModalVisibility(false)
     }));
 
+    // Return nothing if not visible
     if (!visible) return null;
 
     return (
@@ -158,6 +170,7 @@ export const BottomSheet = memo(
               },
               sheetStyle
             ]}
+            testID='animated-view'
           >
             {isDraggable && showDragIcon && (
               <View style={styles.draggableContainer}>

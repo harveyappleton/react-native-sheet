@@ -173,4 +173,26 @@ describe('BottomSheet', () => {
     expect(onCloseStart).toHaveBeenCalledTimes(1);
     await waitFor(() => expect(onCloseFinish).toHaveBeenCalledTimes(1));
   });
+
+  it('should respond to height changes', () => {
+    const ref = createRef<BottomSheetRef>();
+    const { getByTestId, rerender } = render(
+      <BottomSheet ref={ref} height={400}>
+        {null}
+      </BottomSheet>
+    );
+    act(() => {
+      ref.current?.show();
+    });
+
+    expect(getByTestId('animated-view')).toHaveStyle({ height: 400 });
+
+    rerender(
+      <BottomSheet ref={ref} height={600}>
+        {null}
+      </BottomSheet>
+    );
+
+    expect(getByTestId('animated-view')).toHaveStyle({ height: 600 });
+  });
 });

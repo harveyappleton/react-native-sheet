@@ -15,7 +15,8 @@ A cross platform, lightweight, pure JS implementation (no dependencies) of botto
 - :last_quarter_moon: **Light and Dark mode** supported by default, and responds to changes automatically.
 - :arrow_up_down: **Draggable**: You can drag to close once you cross the close threshold, and a drag marker will show to indicate this.
 - :round_pushpin: **Closeable using background**: By tapping on the background behind the sheet, the sheet will be closed.
-- :arrow_backward: **Closeable using Android back button**: will automatically close the modal.
+- :arrow_backward: **Closeable using Android back button**: will automatically close the bottmo sheet.
+- :monocle_face: **Responds to height changes**: if the `height` prop changes, the bottom sheet will change height while open.
 - :art: **Customisable and easy to style** with lots of prop options.
 - :speech_balloon: **Callbacks galore**: Lots of easy to use callbacks, such as `onOpenStart` and `onOpenFinish`.
 - :blue_book: **TypeScript** support - fully written in TypeScript.

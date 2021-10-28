@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { StyleSheet, View, TouchableOpacity, Text, useColorScheme } from 'react-native';
 import { BottomSheet, BottomSheetRef } from 'react-native-sheet';
 
@@ -6,14 +6,20 @@ export default function App() {
   const colorScheme = useColorScheme() || 'light';
   const isDarkMode = colorScheme === 'dark';
   const bottomSheet = useRef<BottomSheetRef>(null);
+  const [height, setHeight] = useState(400);
 
   return (
     <View style={[styles.container, { backgroundColor: isDarkMode ? '#0f0f0f' : '#ffffff' }]}>
-      <BottomSheet height={400} ref={bottomSheet} contentContainerStyle={styles.bottomSheetContainer}>
+      <BottomSheet height={height} ref={bottomSheet} contentContainerStyle={styles.bottomSheetContainer}>
         <Text style={{ color: isDarkMode ? '#ffffff' : '#222222' }}>Your content here</Text>
-        <TouchableOpacity style={styles.button} onPress={() => bottomSheet.current?.hide()}>
-          <Text style={styles.buttonText}>Close</Text>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity style={styles.button} onPress={() => setHeight(currentHeight => (currentHeight === 400 ? 700 : 400))}>
+            <Text style={styles.buttonText}>Change height</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => bottomSheet.current?.hide()}>
+            <Text style={styles.buttonText}>Close</Text>
+          </TouchableOpacity>
+        </View>
       </BottomSheet>
       <TouchableOpacity onPress={() => bottomSheet.current?.show()}>
         <Text style={{ color: isDarkMode ? '#ffffff' : '#222222' }}>Open Bottom Sheet</Text>
