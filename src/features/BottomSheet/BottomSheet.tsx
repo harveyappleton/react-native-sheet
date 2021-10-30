@@ -125,14 +125,17 @@ export const BottomSheet = memo(
       })
     ).current;
 
-    // If `height` prop changes, respond and change to new height immediately
+    // If `height` prop changes while open, respond and change to new height immediately
     useEffect(() => {
-      Animated.timing(animatedHeight, {
-        toValue: height,
-        duration: 0,
-        useNativeDriver: false
-      }).start();
-    }, [height]);
+      if (visible) {
+        Animated.timing(animatedHeight, {
+          toValue: height,
+          duration: 0,
+          useNativeDriver: false
+        }).start();
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [height]); // we only want the useEffect to run when height prop changes
 
     // Expose specific methods on hook
     useImperativeHandle(ref, () => ({

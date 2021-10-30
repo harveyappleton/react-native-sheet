@@ -174,7 +174,7 @@ describe('BottomSheet', () => {
     await waitFor(() => expect(onCloseFinish).toHaveBeenCalledTimes(1));
   });
 
-  it('should respond to height changes', () => {
+  it('should respond to height changes', async () => {
     const ref = createRef<BottomSheetRef>();
     const { getByTestId, rerender } = render(
       <BottomSheet ref={ref} height={400}>
@@ -185,7 +185,7 @@ describe('BottomSheet', () => {
       ref.current?.show();
     });
 
-    expect(getByTestId('animated-view')).toHaveStyle({ height: 400 });
+    await waitFor(() => expect(getByTestId('animated-view')).toHaveStyle({ height: 400 }));
 
     rerender(
       <BottomSheet ref={ref} height={600}>
