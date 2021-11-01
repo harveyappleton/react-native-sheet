@@ -11,6 +11,7 @@ export interface BottomSheetProps {
   children: ReactNode;
   height: number;
   colorScheme?: 'auto' | 'light' | 'dark' | undefined;
+  onRequestClose?: (() => void) | undefined;
   backdropClosesSheet?: boolean | undefined;
   backdropBackgroundColor?: string | undefined;
   sheetBackgroundColor?: string | undefined;
@@ -34,6 +35,7 @@ export const BottomSheet = memo(
     const {
       height,
       colorScheme,
+      onRequestClose,
       backdropClosesSheet = true,
       backdropBackgroundColor,
       sheetBackgroundColor,
@@ -147,7 +149,7 @@ export const BottomSheet = memo(
     if (!visible) return null;
 
     return (
-      <Modal transparent visible={visible} onRequestClose={() => setModalVisibility(false)}>
+      <Modal transparent visible={visible} onRequestClose={onRequestClose ? onRequestClose : () => setModalVisibility(false)}>
         <View
           style={[
             styles.wrapper,
